@@ -13,3 +13,13 @@ VALUES
 SELECT * FROM pacientes
 
 
+/*Inserir 4 dentistas de forma explícita, sendo 1 de cada especialidade;*/
+INSERT INTO Dentistas (nome, cro, especialidade, telefone, celular) VALUES
+('Dr. Pedro Almeida', 'CRO12345', 'Ortodontia', '123456789', '12995678901'),
+('Dra. Júlia Costa', 'CRO23456', 'geral', '234567890', '23996789012'),
+('Dr. Marcos Lima', 'CRO34567', 'Periodontia', NULL , '34997890123'),
+('Dra. Clara Silva', 'CRO45678', 'Implantodontia', NULL , '45998901234');
+
+SELECT * FROM dentistas  
+
+lklk
