@@ -85,3 +85,6 @@ SELECT MONTH('2023-03-24')
 SELECT tipoConsulta, COUNT(tipoConsulta) AS 'quantidade consultas' FROM consultas
 GROUP BY tipoConsulta
 
+/*Criar uma query que traga o número de pacientes que a clínica possui.*/
+SELECT COUNT(idPaciente) AS 'numero pacientes' FROM Pacientes;
+
