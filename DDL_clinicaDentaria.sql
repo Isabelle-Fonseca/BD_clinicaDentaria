@@ -42,3 +42,8 @@ CONSTRAINT FK_Consultas_Dentistas FOREIGN KEY (idDentista)
 REFERENCES Dentistas(idDentista),
 CONSTRAINT CK_tipoConsulta CHECK (tipoConsulta='avaliação' OR tipoConsulta='tratamento')
 );
+
+ALTER TABLE consultas
+ADD COLUMN observacao VARCHAR(250);
+
+SELECT * from consultas 
