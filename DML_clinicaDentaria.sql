@@ -22,4 +22,36 @@ INSERT INTO Dentistas (nome, cro, especialidade, telefone, celular) VALUES
 
 SELECT * FROM dentistas  
 
-lklk
+/*Inserir 3 consultas, sendo 1 para o dentista que cuida de Ortodontia e 2 para o dentista cuja especialidade é Geral. O tipo de todas elas será Avaliação.*/
+INSERT INTO consultas (idDentista, idPaciente, dataConsulta, horaConsulta, tipoConsulta)
+values (1, 5, '2020-12-02', '10:00:24', 'avaliação'),
+(2, 1, '2023-02-10', '09:30:22', 'avaliação'),
+(2, 3, '2023-03-24', '08:00:47', 'avaliação');
+
+SELECT * FROM consultas
+
+/*Atualizar todos os dados, exceto nome e cro, do dentista que cuida de implantodontia, mudando sua especialidade para Geral; */
+UPDATE `clinica_dentaria`.`dentistas` 
+SET `especialidade`='geral', `telefone`='133222503', `celular`='13996397842' 
+WHERE  `idDentista`=4;
+
+SELECT * FROM dentistas
+
+/*Atualizar a data e hora de uma consulta marcada com um dentista cuja especialidade é Geral; */
+UPDATE `clinica_dentaria`.`consultas` 
+SET `dataConsulta`='2023-02-17', `horaConsulta`='09:00:00' 
+WHERE  `idConsulta`=2;
+
+SELECT * FROM consultas
+
+/*Atualizar a consulta do dentista de especialidade ortodontia, mudando o tipo de consulta para Tratamento e inserindo uma observação do dentista com o seguinte texto: “Tratamento será realizado em 10 consultas. Prioridade: Moderada. Remédio aplicado: Ponstan, caso sinta dores” */
+UPDATE `clinica_dentaria`.`consultas` 
+SET `tipoConsulta`='tratamento', `observacao`='Tratamento será realizado em 10 consultas. Prioridade: Moderada. Remédio aplicado: Ponstan, caso sinta dores' 
+WHERE  `idConsulta`=1;
+
+SELECT * FROM consultas
+
+/*Selecionar nome e telefone de todo os pacientes que residem em Santos, em ordem alfabética;*/
+SELECT nome, telefone, cidade from pacientes
+WHERE cidade = 'santos'
+ORDER BY nome ASC
