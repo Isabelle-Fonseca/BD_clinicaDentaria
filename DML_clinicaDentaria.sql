@@ -69,7 +69,16 @@ LEFT JOIN consultas
 ON dentistas.idDentista = consultas.idDentista
 
 /*Criar uma query que exiba a quantidade de dentistas que a clínica possui, agrupando-os por especialidade, ordenando pelo nome da especialidade de A-Z. Para isto, você utilizará o comando group by do sql.*/
-SELECT especialidade, COUNT(especialidade) AS quantidadeDentistas
+SELECT especialidade, COUNT(especialidade) AS 'quantidade Dentistas'
 FROM Dentistas
 GROUP BY especialidade
 ORDER BY especialidade ASC;
+
+/*Criar uma query que mostre a quantidade de consultas que a clínica possui em determinado período do ano. Escolher um mês que retorne ao menos uma consulta, e incluir o mês como filtro. */
+SELECT MONTH(dataConsulta) AS Mes, COUNT(dataConsulta) AS 'quantidade consultas' FROM Consultas
+WHERE MONTH(dataConsulta) = 02
+GROUP BY MONTH(dataConsulta);
+
+SELECT * FROM consultas
+
+
