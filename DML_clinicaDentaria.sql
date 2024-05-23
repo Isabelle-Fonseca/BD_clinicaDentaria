@@ -75,10 +75,13 @@ GROUP BY especialidade
 ORDER BY especialidade ASC;
 
 /*Criar uma query que mostre a quantidade de consultas que a clínica possui em determinado período do ano. Escolher um mês que retorne ao menos uma consulta, e incluir o mês como filtro. */
-SELECT MONTH(dataConsulta) AS Mes, COUNT(dataConsulta) AS 'quantidade consultas' FROM Consultas
+SELECT MONTH(dataConsulta) AS 'Mes', COUNT(dataConsulta) AS 'quantidade consultas' FROM Consultas
 WHERE MONTH(dataConsulta) = 02
 GROUP BY MONTH(dataConsulta);
 
-SELECT * FROM consultas
+SELECT MONTH('2023-03-24')
 
+/*Criar uma query que traga todos os tipos de consulta, agrupadas pela quantidade. */
+SELECT tipoConsulta, COUNT(tipoConsulta) AS 'quantidade consultas' FROM consultas
+GROUP BY tipoConsulta
 
