@@ -55,3 +55,10 @@ SELECT * FROM consultas
 SELECT nome, telefone, cidade from pacientes
 WHERE cidade = 'santos'
 ORDER BY nome ASC
+
+/*Selecionar o nome dos dentistas, a datas da consulta, o nome do paciente e seu telefone, APENAS dos dentistas que possuem consultas; */
+SELECT dentistas.nome AS 'nomes dentistas', consultas.dataConsulta, pacientes.nome AS 'nomes pacientes', pacientes.telefone FROM consultas
+INNER JOIN dentistas
+ON consultas.idDentista = dentistas.idDentista
+INNER JOIN pacientes
+ON consultas.idPaciente = pacientes.idPaciente
