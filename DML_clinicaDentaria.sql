@@ -95,4 +95,13 @@ FROM Consultas
 INNER JOIN Dentistas  ON consultas.idDentista = dentistas.idDentista
 INNER JOIN Pacientes  ON consultas.idPaciente = pacientes.idPaciente
 WHERE dentistas.especialidade = 'Implantodontia';
+ORDER BY consultas.dataConsulta DESC;
 
+/*DESAFIO - Criar uma query que traga o quantas consultas cada um dos dentistas realizou ao longo de todo o período,  ordenando as do que atendeu mais pacientes para o que atendeu menos. */
+
+SELECT dentistas.nome AS 'Nome Dentista', COUNT(consultas.idConsulta) AS NumeroConsultas
+FROM Dentistas 
+LEFT JOIN consultas 
+ON dentistas.idDentista = consultas.idDentista
+GROUP BY dentistas.nome
+ORDER BY NumeroConsultas DESC;
